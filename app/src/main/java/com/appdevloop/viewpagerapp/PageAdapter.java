@@ -22,18 +22,35 @@ public class PageAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return colors.length; // 3 - Number of page to show
+        return 3; // 3 - Number of page to show
     }
 
     @Override
     public Fragment getItem(int position) {
-        // 4 - Page to return
-        return(PageFragment.newInstance(position, this.colors[position]));
+        switch (position){
+            case 0: //Page number 1
+                return NewsPageFragment.newInstance();
+            case 1: //Page number 2
+                return ProfilePageFragment.newInstance();
+            case 2: //Page number 3
+                return ParamPageFragment.newInstance();
+            default:
+                return null;
+        }
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Page "+position;
+        switch (position){
+            case 0: //Page number 1
+                return "Fil d'actualité";
+            case 1: //Page number 2
+                return "Profil";
+            case 2: //Page number 3
+                return "Paramètre";
+            default:
+                return null;
+        }
     }
 }
